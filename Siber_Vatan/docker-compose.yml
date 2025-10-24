@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  web:
+    # Geçerli dizindeki Dockerfile'ı kullanarak imajı oluştur
+    build: .
+    ports:
+      # Bilgisayarınızdaki 80 portunu konteynerin 80 portuna bağla
+      # Eğer 80 portu doluysa "8080:80" olarak değiştirebilirsiniz.
+      - "80:80"
+    volumes:
+      # Kodda değişiklik yaptığınızda konteyneri yeniden başlatmadan
+      # değişikliklerin yansıması için geçerli dizini konteynere bağla.
+      # Veritabanı dosyası da dahil olmak üzere her şey senkronize kalır.
+      - .:/var/www/html
